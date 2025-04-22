@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        // ForgeGradle adds Forge + Maven Central for you
+
+        // Add this:
+        maven {
+            name = "Parchment"
+            url = "https://maven.parchmentmc.org"
+        }
+        maven { url = 'https://maven.minecraftforge.net' }
+    }
+}
+
+plugins {
+}
