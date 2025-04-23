@@ -13,3 +13,5 @@ pluginManagement {
 
 plugins {
 }
+rootProject.name = 'tutorialmod'
+enableFeaturePreview('TYPESAFE_PROJECT_ACCESSORS') // if not already
