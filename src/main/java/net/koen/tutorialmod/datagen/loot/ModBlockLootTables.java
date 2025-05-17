@@ -24,7 +24,7 @@ import static net.minecraft.world.flag.FeatureFlags.REGISTRY;
 
 
 public class ModBlockLootTables extends BlockLootSubProvider {
-    protected ModBlockLootTables {
+    public ModBlockLootTables() {
         super(Set.of(), REGISTRY.allFlags());
     }
 
