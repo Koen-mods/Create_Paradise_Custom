@@ -39,6 +39,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         trapdoorItem(ModBlocks.SAPPHIRE_TRAPDOOR);
 
+        handheldItem(ModItems.SAPPHIRE_SWORD);
+        handheldItem(ModItems.SAPPHIRE_PICKAXE);
+        handheldItem(ModItems.SAPPHIRE_AXE);
+        handheldItem(ModItems.SAPPHIRE_SHOVEL);
+        handheldItem(ModItems.SAPPHIRE_HOE);
+
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
@@ -67,7 +73,11 @@ public class ModItemModelProvider extends ItemModelProvider {
                 modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
     }
 
-
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(TutorialMod.MOD_ID,"item/" + item.getId().getPath()));
+    }
 
 
 

@@ -41,6 +41,12 @@ public class ModCreativeModeTabs {
                             pOutput.accept(ModBlocks.SAPPHIRE_FENCE_GATE.get());
                             pOutput.accept(ModBlocks.SAPPHIRE_WALL.get());
 
+                            pOutput.accept(ModItems.SAPPHIRE_SWORD.get());
+                            pOutput.accept(ModItems.SAPPHIRE_PICKAXE.get());
+                            pOutput.accept(ModItems.SAPPHIRE_AXE.get());
+                            pOutput.accept(ModItems.SAPPHIRE_SHOVEL.get());
+                            pOutput.accept(ModItems.SAPPHIRE_HOE.get());
+
                     })
                     .build());
 
