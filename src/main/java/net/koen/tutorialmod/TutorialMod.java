@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.koen.tutorialmod.block.ModBlocks;
 import net.koen.tutorialmod.item.ModCreativeModeTabs;
 import net.koen.tutorialmod.item.ModItems;
+import net.koen.tutorialmod.loot.ModLootModifiers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,6 +28,7 @@ public class TutorialMod {
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         // Register items/blocks first (before creative tabs)
         // Example: ModItems.register(modEventBus);
