@@ -2,10 +2,17 @@ package net.koen.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.koen.tutorialmod.block.ModBlocks;
+import net.koen.tutorialmod.entity.ModEntities;
+import net.koen.tutorialmod.entity.client.RhinoRenderer;
 import net.koen.tutorialmod.item.ModCreativeModeTabs;
 import net.koen.tutorialmod.item.ModItems;
 import net.koen.tutorialmod.loot.ModLootModifiers;
+import net.koen.tutorialmod.sound.ModSounds;
+import net.koen.tutorialmod.villager.ModVillagers;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -29,6 +36,9 @@ public class TutorialMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModVillagers.register(modEventBus);
+        ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register items/blocks first (before creative tabs)
         // Example: ModItems.register(modEventBus);
@@ -42,6 +52,9 @@ public class TutorialMod {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("HELLO FROM COMMON SETUP");
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CATMINT.getId(), ModBlocks.POTTED_CATMINT);
+        });
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -62,6 +75,7 @@ public class TutorialMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             LOGGER.info("HELLO FROM CLIENT SETUP");
+            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
         }
     }
 }

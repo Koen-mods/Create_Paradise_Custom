@@ -1,9 +1,11 @@
 package net.koen.tutorialmod.item.custom;
 
+import net.koen.tutorialmod.sound.ModSounds;
 import net.koen.tutorialmod.util.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -37,14 +39,18 @@ public class MetalDetectorItem extends Item {
                 if(isValuableBlock(state)){
                     outputValubleCoordinates(positionClicked.below(i), player, state.getBlock());
                     foundblock = true;
+
+                    pContext.getLevel().playSeededSound(null, positionClicked.getX(), positionClicked.getY(), positionClicked.getZ(),
+                            ModSounds.METAL_DETECTOR_FOUND_ORE.get(), SoundSource.BLOCKS, 1f, 1f, 0);
+
                     break;
-                }
-                if(!foundblock){
-                    player.sendSystemMessage(Component.literal("no valuables found!"));
                 }
 
                 pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(),
                         player1 -> player.broadcastBreakEvent(player.getUsedItemHand()));
+            }
+            if(!foundblock){
+                player.sendSystemMessage(Component.literal("no valuables found!"));
             }
         }
 
