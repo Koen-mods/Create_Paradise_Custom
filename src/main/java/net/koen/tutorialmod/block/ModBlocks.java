@@ -1,7 +1,9 @@
 package net.koen.tutorialmod.block;
 
 import net.koen.tutorialmod.TutorialMod;
+import net.koen.tutorialmod.block.custom.CornCropBlock;
 import net.koen.tutorialmod.block.custom.SoundBlock;
+import net.koen.tutorialmod.block.custom.StrawberryCropBlock;
 import net.koen.tutorialmod.item.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -49,6 +51,11 @@ public class ModBlocks {
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
     public static final RegistryObject<Block> SAPPHIRE_TRAPDOOR = registerBlock("sapphire_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion(), BlockSetType.IRON));
+
+    public static final RegistryObject<Block> STRAWBERRY_CROP = BLOCKS.register("strawberry_crop",
+            () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+    public static final RegistryObject<Block> CORN_CROP = BLOCKS.register("corn_crop",
+            () -> new CornCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> RAW_SAPPHIRE_BLOCK = registerBlock("raw_sapphire_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));

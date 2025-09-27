@@ -52,6 +52,10 @@ public class ModCreativeModeTabs {
                             pOutput.accept(ModItems.SAPPHIRE_LEGGINGS.get());
                             pOutput.accept(ModItems.SAPPHIRE_BOOTS.get());
 
+                            pOutput.accept(ModItems.STRAWBERRY_SEEDS.get());
+                            pOutput.accept(ModItems.CORN_SEEDS.get());
+                            pOutput.accept(ModItems.CORN.get());
+
                     })
                     .build());
 

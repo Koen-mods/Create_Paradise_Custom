@@ -1,6 +1,7 @@
 package net.koen.tutorialmod.item;
 
 import net.koen.tutorialmod.TutorialMod;
+import net.koen.tutorialmod.block.ModBlocks;
 import net.koen.tutorialmod.item.custom.FuelItem;
 import net.koen.tutorialmod.item.custom.MetalDetectorItem;
 import net.koen.tutorialmod.item.custom.ModArmorItem;
@@ -25,6 +26,13 @@ public class ModItems {
             () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> PINE_CONE = ITEMS.register("pine_cone",
             () -> new FuelItem(new Item.Properties(), 400));
+
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CORN_SEEDS = ITEMS.register("corn_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.CORN_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CORN = ITEMS.register("corn",
+            () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",
             () -> new SwordItem(ModToolTiers.SAPPHIRE, 4, 2, new Item.Properties()));
